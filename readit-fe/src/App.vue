@@ -1,35 +1,63 @@
 <template>
   <div class="app-container">
-    <div class="content-box">
-      <h1>Reddit Clone</h1>
+    <header class="app-header">
+      <h1>readit-min-v1</h1>
+    </header>
+    <main class="main-content">
       <PostList />
-    </div>
+    </main>
   </div>
 </template>
 
-<script setup>
-import PostList from './components/PostList.vue'
+<script>
+import PostList from './components/PostList.vue';
+
+export default {
+  components: {
+    PostList
+  }
+}
 </script>
 
 <style>
-body {
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
   background-color: #f8f9fc;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 .app-container {
+  /* min-height: 100vh; */
   display: flex;
-  justify-content: center;
-  padding: 2rem;
+  flex-direction: column;
 }
 
-.content-box {
-  background: white;
+.app-header {
+  background: linear-gradient(135deg, #5b6dfd 0%, #4a5ae0 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.main-content {
+  flex: 1;
   padding: 2rem;
-  border-radius: 12px;
-  max-width: 800px;
   width: 100%;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  max-width: none;
 }
 </style>
