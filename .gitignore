@@ -1,0 +1,46 @@
+# Go build artifacts
+reddit-backend/bin/
+reddit-backend/*.exe
+reddit-backend/*.exe~
+reddit-backend/*.dll
+reddit-backend/*.so
+reddit-backend/*.dylib
+reddit-backend/*.test
+reddit-backend/coverage.out
+
+# Go workspace files
+reddit-backend/.idea/
+reddit-backend/.vscode/
+reddit-backend/.DS_Store
+reddit-backend/ui/
+
+# SQLite database file
+reddit-backend/*.db
+
+# Dependency cache (optional)
+reddit-backend/vendor/
+
+# Node modules
+reddit-frontend/node_modules/
+
+# Build output
+reddit-frontend/dist/
+
+# Vite/Temp
+reddit-frontend/.vitepress/cache/
+reddit-frontend/.vite/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS junk
+.DS_Store
+Thumbs.db
