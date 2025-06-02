@@ -3,6 +3,7 @@ package main
 import (
 	"readit-be/controllers"
 	"readit-be/database"
+	"readit-be/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -24,12 +25,13 @@ func main() {
 	r.POST("/signin", controllers.SignIn)
 
 	// >> These are protected routes
-	auth: r.Group("/")
-	auth.Use(middleware.JWTAuthMiddleware()){
-		r.GET("/posts", controllers.GetPosts)
-		r.POST("/posts", controllers.CreatePost)
+	auth := r.Group("/")
+	auth.Use(middleware.JWTAuthMiddleware())
+	{
+		auth.GET("/posts", controllers.GetPosts)
+		auth.POST("/posts", controllers.CreatePost)
 	}
-	
+
 	// r.Static("/assets", "./ui/dist/assets")
 	// r.GET("/", func(c *gin.Context) {
 	// 	c.File("./ui/dist/index.html")
