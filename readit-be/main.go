@@ -20,9 +20,16 @@ func main() {
 		c.File("./ui/index.html")
 	})
 
-	r.GET("/posts", controllers.GetPosts)
-	r.POST("/posts", controllers.CreatePost)
+	r.POST("/signup", controllers.SignUp)
+	r.POST("/signin", controllers.SignIn)
 
+	// >> These are protected routes
+	auth: r.Group("/")
+	auth.Use(middleware.JWTAuthMiddleware()){
+		r.GET("/posts", controllers.GetPosts)
+		r.POST("/posts", controllers.CreatePost)
+	}
+	
 	// r.Static("/assets", "./ui/dist/assets")
 	// r.GET("/", func(c *gin.Context) {
 	// 	c.File("./ui/dist/index.html")
