@@ -3,20 +3,11 @@
     <header class="app-header">
       <h1>readit-min-v1</h1>
     </header>
-    <main class="main-content">
-      <PostList />
-    </main>
+    <router-view />
   </div>
 </template>
 
 <script>
-import PostList from './components/PostList.vue';
-
-export default {
-  components: {
-    PostList
-  }
-}
 </script>
 
 <style>
