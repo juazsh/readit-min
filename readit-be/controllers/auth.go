@@ -83,6 +83,7 @@ func SignIn(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
 		return
 	}
+	c.SetCookie("token", tokenString, 3600, "/", "localhost", false, true)
 
 	c.JSON(http.StatusOK, gin.H{"token": tokenString})
 }
