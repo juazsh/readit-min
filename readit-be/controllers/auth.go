@@ -85,7 +85,7 @@ func SignIn(c *gin.Context) {
 	}
 	c.SetCookie("token", tokenString, 3600, "/", "localhost", false, true)
 
-	c.JSON(http.StatusOK, gin.H{"token": tokenString})
+	c.JSON(http.StatusOK, gin.H{"message": "Login successful"})
 }
 
 func generateHex(n int) string {
